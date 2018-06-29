@@ -1,4 +1,4 @@
-#! /usr/bin/env racket
+#!/usr/local/bin/racket
 #lang sicp
 (#%require sicp)
 
