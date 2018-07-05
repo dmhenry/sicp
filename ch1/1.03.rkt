@@ -1,4 +1,4 @@
-#!/usr/local/bin/racket
+#!/usr/bin/env racket
 #lang racket
 (#%require sicp)
 (require racket/cmdline)
@@ -12,9 +12,10 @@
     (* x x))
   (define (sum-of-squares x y)
     (+ (square x) (square y)))
-  (cond ((and (<= x y) (<= x z)) (sum-of-squares y z))
-        ((and (<= y x) (<= y z)) (sum-of-squares x z))
-        (else (sum-of-squares x y))))
+  (sum-of-squares
+    (cond ((and (<= x y) (<= x z)) (cons y z))
+          ((and (<= y x) (<= y z)) (cons x z))
+          (else (cons x y)))))
 
 ; Run from shell
 (define parser
