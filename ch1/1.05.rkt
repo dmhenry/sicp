@@ -1,4 +1,3 @@
-#!/usr/bin/env racket
 #lang sicp
 
 ; Exercise 1.5
