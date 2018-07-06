@@ -9,7 +9,6 @@
 (define (a-plus-abs-b a b)
   ((if (> b 0) + -) a b))
 
-; My Solution:
 ; This procedure dynamically chooses one of two operators {+,-} to apply to its
 ; operands, a and b, based on the result of the predicate (b > 0). In this case,
 ; the procedure applies the + operation when the second operand is a positive
