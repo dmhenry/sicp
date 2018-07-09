@@ -1,9 +1,9 @@
+#lang sicp
+
 ; Exercise 1.5
 ; Ben Bitdiddle has invented a test to determine whether the interpreter he is
 ; faced with is using applicative-order evaluation or normal-order evaluation.
 ; He defines the following two procedures:
-
-#lang sicp
 
 (define (p) (p))
 
@@ -38,14 +38,14 @@
 ;     0
 ;
 ; By contrast, using normal-order evaluation the interpreter will appear to
-; hang, as it attempts to fully (and recursively) expand the procedure p before
-; performing any reductions. This is demonstrated by the expansion sequence
+; hang, as it attempts to expand the procedure p before performing any
+; reductions. This is demonstrated by the expansion sequence
 ;
 ;     (test 0 (p))
 ;
-;     (test 0 ((p)))
+;     (test 0 (p))
 ;
-;     (test 0 (((p))))
+;     (test 0 (p))
 ;
 ;      ...
 ;
