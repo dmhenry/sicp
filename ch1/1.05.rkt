@@ -19,25 +19,16 @@
 ; What behavior will Ben observe with an interpreter that uses applicative-
 ; order evaluation? What behavior will he observe with an interpreter that
 ; uses normal-order evaluation? Explain your answer. (Assume that the 
-; evaluation rule for the special form if is the same whetehr the interpreter
+; evaluation rule for the special form if is the same whether the interpreter
 ; is using normal or applicative order: The predicate expression is evaluated
 ; first, and the result determines whether to evaluate the consequent or the
 ; alternative expression.)
 
-; Using applicative-order evaluation, the interpreter will return 0, as
-; demonstrated by the substition sequence
-;
-;     (test 0 (p))
-;
-;     (if (= 0 0) 0 (p))
-;
-;     (if #t 0 (p))
-;
-;     0
-;
-; By contrast, using normal-order evaluation the interpreter will appear to
-; hang, as it attempts to expand the procedure p before performing any
-; reductions. This is demonstrated by the expansion sequence
+; Applicative-order evaluation relies on reductions being performed as they are
+; encountered. This requires arguments to be fully expanded and reduced before
+; an evaluation can proceed. In the case above, the operation "test" cannot be
+; applied until its operands have been evaluated. "test" relies on the reduction
+; of (p), which recursively expands to itself, causing the interpreter to hang.
 ;
 ;     (test 0 (p))
 ;
@@ -47,5 +38,17 @@
 ;
 ;      ...
 ;
-; This may culminate in an overflow of the stack if the interpreter does not
-; attempt to detect and mitigate the infinite recursion.
+; Using normal-order evaluation, the interpreter will return 0, as demonstrated
+; by the substition sequence
+;
+;     (test 0 (p))
+;
+;     (if (= 0 0) 0 (p))
+;
+;     (if #t 0 (p))
+;
+;     0
+;
+; This works because evaluation of (p) can be delayed until its value is
+; needed, which it never is. The truth value of the predicate results in the
+; consequent branch being executed; the alternate can be safely ignored.
