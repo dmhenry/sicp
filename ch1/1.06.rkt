@@ -47,7 +47,7 @@
 ; Applicative-order evaluation first evaluates the operator and operands,
 ; applying the operator to the operands. The alternative (else) branch of
 ; new-if is defined recursively in terms of itself and, under applicative-order
-; evaluation, will repeated introduce and expand more calls to sqrt-iter ad
+; evaluation, will repeatedly introduce and expand more calls to sqrt-iter ad
 ; infinitum. "If" must be provided as a special form in order to force
 ; evaluation of predicate before evaluation of either branch, preventing this
 ; kind of infinite expansion.
