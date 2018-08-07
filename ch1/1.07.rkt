@@ -16,9 +16,6 @@
 ;  (display (average guess (/ x guess))) (newline)
   (average guess (/ x guess)))
 
-(define (determinant guess x)
-  (abs (- (square guess) x)))
-
 (define (good-enough? guess x)
 ;  (display "guess^2       = ")
 ;  (display (square guess)) (newline)
@@ -27,8 +24,8 @@
 ;  (display "|guess^2 - x| = ")
 ;  (display (abs (- (square guess) x))) (newline)
 ;  (display "good-enough?  = ")
-;  (display (< (determinant guess x) 0.001)) (newline)
-  (< (determinant guess x) 0.001))
+;  (display (< (abs (- (square guess) x)) 0.001)) (newline)
+  (< (abs (- (square guess) x)) 0.001))
 
 (define (sqrt-iter guess x)
 ;  (display "==========================================") (newline)
@@ -73,3 +70,41 @@
 ; returns 316227766.01683795. This case is very specific, but is generalizable
 ; to other very large values. Commenting in the "display" lines, above, will
 ; demonstrate the behavior.
+
+(define (done? guess last-guess)
+;  (display "guess                                  = ")
+;  (display guess) (newline)
+;  (display "last-guess                             = ")
+;  (display last-guess) (newline)
+;  (display "guess - last-guess                     = ")
+;  (display (- guess last-guess)) (newline)
+;  (display "|guess - last-guess|                   = ")
+;  (display (abs (- guess last-guess))) (newline)
+;  (display "|guess - last-guess| / guess           = ")
+;  (display (/ (abs (- guess last-guess)) guess)) (newline)
+;  (display "(|guess - last-guess| / guess) > 0.999 = ")
+;  (display (< (/ (abs (- guess last-guess)) guess) 0.000001)) (newline)
+  (< (/ (abs (- guess last-guess)) guess) 0.000001))
+
+(define (better-sqrt-iter guess last-guess x)
+  (if (done? guess last-guess)
+    guess
+    (better-sqrt-iter (improve guess x)
+                      guess
+                      x)))
+
+(define (better-sqrt x)
+  (better-sqrt-iter 1.0 0.5 x))
+
+; The "better-sqrt" procedure, above, uses the same iterative process to make
+; and improve guesses. However, it terminates when the ratio of the difference
+; between the current guess and the last guess over the current guess is less
+; than one one-millionth. This effectively calculates arbitrarily large and
+; small number to a very high accuracy. For example, applying "better-sqrt" to
+; 1e-97 results in 3.1622776601683796e-49 which is the same as the calculator
+; application on my Mac, with one added degree of precision (the calculator app
+; provides 3.162277660168379e-49). Applying "better-sqrt" to 1e+96 yields 
+; 3.162277660168379e+48, which is again, one decimal more precise than the
+; calculator app on my Mac (which provides 3.16227766016838e+48). In summary,
+; this method is highly precise, highly accurate, and clearly superior to the
+; original "sqrt" procedure.
