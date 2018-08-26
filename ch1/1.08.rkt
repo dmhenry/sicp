@@ -1,12 +1,5 @@
 #lang sicp
 
-(define (abs x)
-  (if (< x 0)
-    (- x)
-    x))
-
-(define (square x)
-  (* x x))
 
 ; Exercise 1.8
 ; ------------
@@ -22,19 +15,21 @@
 ; root procedure. (In section 1.3.4 we will see how to implement Newton's method
 ; in general as an abstraction of these square-root and cube-root procedures.)
 
-(define (good-enough? guess last-guess)
-  (< (/ (abs (- guess last-guess)) guess) 0.000001))
-
-(define (improve guess x)
-  (/ (+ (/ x (square guess)) (* 2 guess)) 3))
-
-(define (cbrt-iter guess last-guess x)
-  (if (good-enough? guess last-guess)
-    guess
-    (cbrt-iter (improve guess x) 
-               guess
-               x)))
-
 (define (cbrt x)
-  (cbrt-iter 1.0 0.5 x))
+  (define (abs y)
+    (if (< y 0)
+      (- y)
+      y))
+  (define (square y)
+  (* y y))
+  (define (good-enough? guess last-guess)
+    (< (/ (abs (- guess last-guess)) guess) 0.000001))
+  (define (improve guess)
+    (/ (+ (/ x (square guess)) (* 2 guess)) 3))
+  (define (cbrt-iter guess last-guess)
+    (if (good-enough? guess last-guess)
+      guess
+      (cbrt-iter (improve guess) 
+                 guess)))
+  (cbrt-iter 1.0 0.5))
 
