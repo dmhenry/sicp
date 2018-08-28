@@ -50,7 +50,7 @@
 ; (+ 0 9)
 ;
 ; The procedure itself is again recursive, simply because it is defined in terms
-; of itself. Unlike the first process, however, the process that emerges from
+; of itself. Unlike the first procedure however, the process that emerges from
 ; this procedure is iterative, as it does not exhibit expansion and contraction.
 ; The state of the operation is expressed entirely by the two state variables
 ; and a fixed rule for determining how the process should proceed. For this
