@@ -55,8 +55,8 @@
 ; The state of the operation is expressed entirely by the two state variables
 ; and a fixed rule for determining how the process should proceed. For this
 ; reason, the process can pick up from any point and generate the same correct
-; result. The amount of time, as well as the amount of space, required by the
-; process, grows linearly with the input size, making it a linear iterative
-; process on both counts. An iterative process that emerges from a recursive
-; procedure is "tail recursive".
+; result so long as the states of the two varialbes are provided. The amount of
+; time, as well as the amount of space, required by the process, grows linearly
+; with the input size, making it a linear iterative process on both counts. An
+; iterative process that emerges from a recursive procedure is "tail recursive".
 
