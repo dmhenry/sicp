@@ -103,9 +103,9 @@
 ; proportional to the number of nodes in the tree, as nodes essentially
 ; represent computational steps. Each call to "cc" potentially doubles the 
 ; number of steps involved in the computation. This is exponential growth, or 
-; more specifically, O(2^(amount + kinds-of-coins)).
+; more specifically, Θ(2^(amount + kinds-of-coins)).
 ;
 ; Tree-recursive processes generally require space proportional to the depth of
 ; the tree because we need only know which steps are above a given node to apply
 ; its deferred operations. So space complexity is grossly characterized as
-; O(amount + kinds-of-coins).
+; Θ(amount + kinds-of-coins).
