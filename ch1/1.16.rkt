@@ -44,9 +44,9 @@
 ; multiplication of a*b due to the presence of an odd integer exponent (n).
 ; (Note that this occurs when the exponent n is one less than a power of 2.)
 ; This worst-case scenario effectively doubles the number of steps involving
-; changes to the values of a and b in the invariant quantity ab^n. The worst
-; case, then, is represented by O(2log₂(n)) complexity growth. This is
-; demonstrated below with 2^15:
+; changes to the values of a and b in the invariant quantity ab^n (which holds
+; until the base case is encountered). The worst case, then, is represented by
+; O(2log₂(n)) complexity growth. This is demonstrated below with 2^15:
 ;
 ; (quick-expt-iter 2 15 1)
 ; (quick-expt-iter 2 14 2)
