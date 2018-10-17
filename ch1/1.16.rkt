@@ -1,10 +1,5 @@
 #lang sicp
-
-(define (even? n)
-  (= (remainder n 2) 0))
-
-(define (square x)
-  (* x x))
+(#%require "../include/sicp-source-code.rkt")
 
 ; Exercise 1.16
 ; Design a procedure that evolves an iterative exponentiation process that uses
