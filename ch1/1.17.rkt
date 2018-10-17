@@ -1,8 +1,5 @@
 #lang sicp
 
-(define (even? n)
-  (= (remainder n 2) 0))
-
 ; Exercise 1.17
 ; The exponentiation algorithms in this section are based on performing
 ; exponentiation by means of repeated multiplication. In a similar way, one can

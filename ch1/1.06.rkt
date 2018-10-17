@@ -1,21 +1,5 @@
 #lang sicp
-
-(define (abs x)
-  (if (< x 0)
-    (- x)
-    x))
-
-(define (square x)
-  (* x x))
-
-(define (average x y)
-  (/ (+ x y) 2))
-
-(define (improve guess x)
-  (average guess (/ x guess)))
-
-(define (good-enough? guess x)
-  (< (abs (- (square guess) x)) 0.001))
+(#%require "../include/sicp-source-code.rkt")
 
 ; Exercise 1.6
 ; Alyssa P. Hacker doesn't see why "if" needs to be provided as a special form.

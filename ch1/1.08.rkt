@@ -1,4 +1,5 @@
 #lang sicp
+(#%require "../include/sicp-source-code.rkt")
 
 ; Exercise 1.8
 ; ------------
@@ -15,12 +16,6 @@
 ; in general as an abstraction of these square-root and cube-root procedures.)
 
 (define (cbrt x)
-  (define (abs y)
-    (if (< y 0)
-      (- y)
-      y))
-  (define (square y)
-  (* y y))
   (define (good-enough? guess last-guess)
     (< (/ (abs (- guess last-guess)) guess) 0.000001))
   (define (improve guess)
@@ -28,7 +23,6 @@
   (define (cbrt-iter guess last-guess)
     (if (good-enough? guess last-guess)
       guess
-      (cbrt-iter (improve guess) 
-                 guess)))
+      (cbrt-iter (improve guess) guess)))
   (cbrt-iter 1.0 0.5))
 
