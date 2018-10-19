@@ -35,8 +35,8 @@
 
 (define (search-for-primes lower upper)
   (define (search-for-primes-iter candidate)
-    (cond ((<= candidate upper)
-             (search-for-primes-iter (+ candidate 2)))))
+    (if (<= candidate upper)
+           (search-for-primes-iter (+ candidate 2))))
   (search-for-primes-iter (cond ((< lower 3) 3)
                                 ((even? lower) (+ lower 1))
                                 (else lower))))
