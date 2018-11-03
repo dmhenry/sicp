@@ -49,7 +49,7 @@
                          (else lower))))
     (search-for-primes-iter adjusted-lower)))
 
-; | magnitude | prime            |       1.22 |       1.23 |   ratio  |
+; | magnitude | prime            |       1.22 |       1.23 |    ratio |
 ; |-------------------------------------------------------------------|
 ; | 10^3      | 1009             |          2 |          2 |     1.00 |
 ; |           | 1013             |          2 |          1 |     2.00 |
