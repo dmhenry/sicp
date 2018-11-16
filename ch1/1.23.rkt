@@ -1,5 +1,12 @@
 #lang sicp
 
+; Provided procedures
+(define (square x)
+  (* x x))
+
+(define (divides? a b)
+  (= (remainder b a) 0))
+
 ; Exercise 1.23
 ; The smallest-divisor procedure shown at the start of this section does lots of
 ; needless testing: After it checks to see if the number is divisible by 2 there
@@ -55,12 +62,6 @@
   (newline)
   (display n)
   (start-prime-test n (runtime)))
-
-(define (square x)
-  (* x x))
-
-(define (divides? a b)
-  (= (remainder b a) 0))
 
 ; =========== Output ===========================================================
 
