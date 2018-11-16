@@ -1,5 +1,11 @@
 #lang sicp
-(#%require "../include/sicp-source-code.rkt")
+
+; Provided procedures
+(define (sum-of-squares x y)
+  (+ (square x) (square y)))
+
+(define (square x)
+  (* x x))
 
 ; Exercise 1.3
 ; Define a procedure that takes three numbers as arguments and returns the sum

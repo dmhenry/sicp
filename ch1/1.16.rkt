@@ -1,5 +1,8 @@
 #lang sicp
-(#%require "../include/sicp-source-code.rkt")
+
+; Provided procedure
+(define (square x)
+  (* x x))
 
 ; Exercise 1.16
 ; Design a procedure that evolves an iterative exponentiation process that uses

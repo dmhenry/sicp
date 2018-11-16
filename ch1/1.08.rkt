@@ -1,5 +1,8 @@
 #lang sicp
-(#%require "../include/sicp-source-code.rkt")
+
+; Provided procedures
+(define (square x)
+  (* x x))
 
 ; Exercise 1.8
 ; ------------

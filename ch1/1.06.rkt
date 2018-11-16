@@ -1,5 +1,17 @@
 #lang sicp
-(#%require "../include/sicp-source-code.rkt")
+
+; Provided procedures
+(define (good-enough? guess x)
+  (< (abs (- (square guess) x)) 0.001))
+
+(define (square x)
+  (* x x))
+
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
 
 ; Exercise 1.6
 ; Alyssa P. Hacker doesn't see why "if" needs to be provided as a special form.

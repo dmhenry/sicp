@@ -1,5 +1,11 @@
 #lang sicp
-(#%require "../include/sicp-source-code.rkt")
+
+; Provided procedures
+(define (improve guess x)
+  (average guess (/ x guess)))
+
+(define (average x y)
+  (/ (+ x y) 2))
 
 ; Exercise 1.7
 ; ------------
