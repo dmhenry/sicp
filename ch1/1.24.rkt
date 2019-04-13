@@ -4,9 +4,6 @@
 (define (square x)
   (* x x))
 
-(define (smallest-divisor n)
-  (find-divisor n 2))
-
 (define (find-divisor n test-divisor)
   (cond ((> (square test-divisor) n) n)
         ((divides? test-divisor n) test-divisor)
@@ -81,7 +78,7 @@
 (newline)
 
 ; Considering the Fermat test exhibits Θ(log n) complexity, runtime should
-; roughtly double as the exponent doubles (given the same base), as in going 
+; roughly double as the exponent doubles (given the same base), as in going 
 ; from 10^3 to 10^6. In practice, a trial run (below) shows a ratio of 
 ; (95+85+105)/(59+52+53)=1.738 for 10^6 primes over 10^3 primes. 
 
